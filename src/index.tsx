@@ -3,13 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom'
+import Contact from './components/ContactComponent'
+import About from './components/AboutComponent'
+import ParamsComponent from './components/ParamsComponent'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+      <h1>Router Test</h1>
+      <BrowserRouter>
+              <Routes>
+                  <Route path='/' element={<App/>}>
+                  </Route>
+                  <Route path='/about' element={<About title={'Hello from the awesome side!!'}></About>}>
+                  </Route>
+                  <Route path='/contact' element={<Contact/>}>
+                  </Route>
+                  <Route path='/parameter/:parameter' element={<ParamsComponent/>}>
+                  </Route>
+              </Routes>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
